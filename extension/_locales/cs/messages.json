@@ -1,0 +1,41 @@
+{"extension_description": {
+    "message": "Přesměrovává YT videa do MPV pro plynulejší a tižší chod na starším počítači bez HW akcelerace VP9/AV1."
+  },
+  "open_external": {
+    "message": "Otevřít v externím přehrávači"
+  },
+  "not_youtube": {
+    "message": "YT video na stránce nenalezeno"
+  },
+  "opening": {
+    "message": "Otevírám…"
+  },
+  "done": {
+    "message": "Hotovo!"
+  },
+  "error": {
+    "message": "Chyba při odesílání do aplikace"
+  },
+  "unsupported_os": {
+    "message": "Tento operační systém není podporován"
+  },
+  "script_installed": {
+    "message": "Skript byl nainstalován."
+  },
+  "trying_python_script": {
+    "message": "Zkouším kontaktovat Python skript..."
+  },
+  "open_in_player": {
+    "message": "Otevřít v externím přehrávači"
+  },
+  "sending_to_python": {
+    "message": "Odesílám zprávu do Python skriptu."
+  },
+  "error_native_msg": {
+    "message": "Chyba při odesílání nativní zprávy."
+  },
+  "python_response": {
+    "message": "Odpověd z Python skriptu:"
+  }
+
+}

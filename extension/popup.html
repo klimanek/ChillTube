@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <style>
+    body {
+        font-family: sans-serif;
+        padding: 10px;
+        width: 220px;
+    }
+
+    #status {
+        margin-top: 10px;
+    }
+
+    .spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #ccc;
+        border-top: 2px solid #333;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    <button id="launch">Otevřít v externím přehrávači</button>
+    <div id="status"></div>
+    <script src="popup.js"></script>
+</body>
+</html>

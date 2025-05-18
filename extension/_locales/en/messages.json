@@ -1,0 +1,41 @@
+{
+  "extension_description": {
+    "message": "Offloads YouTube playback to MPV for smoother performance on older hardware. Ideal when VP9/AV1 decoding is not hardware-accelerated."
+  },
+  "open_external": {
+    "message": "Open in external player"
+  },
+  "not_youtube": {
+    "message": "No YouTube video found on this page"
+  },
+  "opening": {
+    "message": "Opening…"
+  },
+  "done": {
+    "message": "Done!"
+  },
+  "error": {
+    "message": "Failed to send to native app."
+  },
+  "unsupported_os": {
+    "message": "This operating system is not supported"
+  },
+  "script_installed": {
+    "message": "Script was installed."
+  },
+  "trying_python_script": {
+    "message": "Trying to contact Python script..."
+  },
+  "open_in_player": {
+    "message": "Open in external player"
+  },
+  "sending_to_python": {
+    "message": "Sending message to Python..."
+  },
+  "error_native_msg": {
+    "message": "Error while sending a native message."
+  },
+  "python_response": {
+    "message": "Response from Python script:"
+  }
+}
