@@ -44,14 +44,14 @@ from here and extract it locally, or...
 
 ### 1b. Clone this repo
 ```bash
-git clone https://github.com/klimanek/chilltube
+git clone https://github.com/klimanek/ChillTube
 ```
 
 ### 2. Load the extension in your browser
 - Go to `chrome://extensions/` 
 - Enable Developer Mode
 - Click Load unpacked and select the `extension` folder
-- copy the extension ID
+- Copy the extension ID
 
 ### 3. Install native messaging host
 ```bash
@@ -98,6 +98,9 @@ Feel free to contribute translations in your language!
 
 ## 📜 License
 MIT
+
+## 🔍 Related keywords
+YouTube overheat, loud fans, battery drain, MPV player, H.264 fallback, yt-dlp helper, external player for YouTube, Chromium extension, older laptops, fanless playback, AV1 problem, VP9 decoding issues
 
 <!--
 Keywords: YouTube overheating, fan noise, battery drain, watch YouTube in MPV, yt-dlp extension, play YouTube in external player, hardware accelerated YouTube, slow YouTube playback, reduce CPU usage YouTube, VP9 issue, AV1 lag, quiet laptop YouTube
