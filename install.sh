@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Config
-EXT_ID="egloiofgpokfincpignmkaikpkdnbnpk"  # use a real ID (see extensions in Chrome)
+EXT_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # use a real ID (see extensions in Chrome)
 
 SCRIPT_PATH="$HOME/.local/bin/yt_h264.py"
 
