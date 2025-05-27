@@ -115,26 +115,25 @@ def main():
     player_name = "mpv"
 
     if shutil.which(player_name):
-        player = ["mpv", "--ytdl-format=bv*[vcodec^=avc1][height<=1080]+ba[acodec^=mp4a]/b[vcodec^=avc1][height<=1080]", url]
-        
+        player = [
+            player_name,
+            "--ytdl-format=bv*[vcodec^=avc1][height<=1080]+ba[acodec^=mp4a]/b[vcodec^=avc1][height<=1080]",
+            url
+        ]
         logger.info(f"main - MPV found. Command: {player}")
     else:
         logger.error("main - MPV player not found.")
+        send_message({"status": "Error", "reason": "MPV not found"})
+        return
 
-    if player:
-        try:
-            subprocess.Popen(player)
-            send_message({"status": "OK", "launched": True, "player": player_name})
-            logger.info(f"main - Successfully launched {player_name}.")
-        except FileNotFoundError:
-            send_message({"status": "Error", "reason": f"Player {player_name} not found in PATH."})
-            logger.error(f"main - Player {player_name} not found.")
-        except Exception as e:
-            send_message({"status": "Error", "reason": f"Failed to launch player: {e}"})
-            logger.error(f"main - Failed to launch player: {e}")
-    else:
-        send_message({"status": "Error", "reason": "MPV player not found or unable to extract URLs"})
-        logger.error("main - No player or URLs found for launch.")
+    # Launch player
+    try:
+        subprocess.Popen(player)
+        send_message({"status": "Success"})
+        logger.info("main - MPV launched successfully.")
+    except Exception as e:
+        logger.error(f"main - Failed to launch MPV: {e}")
+        send_message({"status": "Error", "reason": f"MPV launch failed: {str(e)}"})
 
 if __name__ == '__main__':
     main()
