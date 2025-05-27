@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "ChillTube (YT H264)",
-    "version": "1.0",
+    "version": "1.1",
     "description": "__MSG_extension_description__",
     "default_locale": "en",
     "icons": {
@@ -15,7 +15,8 @@
     "permissions": [
         "activeTab",
         "contextMenus",
-        "nativeMessaging"
+        "nativeMessaging",
+        "storage"
     ],
     "host_permissions": [
         "*://www.youtube.com/*"
@@ -26,5 +27,16 @@
             "16": "icons/icon16.png",
             "48": "icons/icon48.png"
         }
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.youtube.com/watch*"
+            ],
+            "js": [
+                "content_script.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
 }

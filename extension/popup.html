@@ -34,11 +34,20 @@
         padding: 6px 12px;
         font-size: 14px;
     }
+
+    label {
+        font-size: 0.9em;
+    }
+    
     </style>
 </head>
 <body>
     <button id="launch">Otevřít v externím přehrávači</button>
     <div id="status"></div>
+    <label>
+        <input type="checkbox" id="autoplayCheckbox">
+        Autoplay in browser
+    </label>
     <script src="popup.js"></script>
 </body>
 </html>

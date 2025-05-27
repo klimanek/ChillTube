@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("launch");
     const status = document.getElementById("status");
+    const checkbox = document.getElementById('autoplayCheckbox');
 
     const t = chrome.i18n.getMessage;
 
@@ -15,6 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // AUTOPLAY
+        // Read the value of the checkboxu (autoplay)
+        chrome.storage.local.get('yt_mpv_autoplay', (data) => {
+            if (typeof data.yt_mpv_autoplay === 'boolean') {
+                checkbox.checked = data.yt_mpv_autoplay;
+            } else {
+                // První spuštění – nastavíme výchozí hodnotu (false)
+                chrome.storage.local.set({ yt_mpv_autoplay: false });
+                checkbox.checked = false;
+            }
+        });
+
+        // Uložení nového stavu při změně checkboxu
+        checkbox.addEventListener('change', () => {
+            chrome.storage.local.set({ yt_mpv_autoplay: checkbox.checked });
+        });
+
+        // External player launch
         button.addEventListener("click", () => {
             button.disabled = true;
             status.innerHTML = `<span class="spinner"></span>${t("opening")}`;
