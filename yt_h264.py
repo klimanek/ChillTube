@@ -92,23 +92,18 @@ def extract_h264_urls(url):
         logger.error(f"extract_h264_urls - An error occurred: {e}")
         return None, None
 
-# Main
-def main():
-    logger.info("main - Starting.")
-    received = read_message()
+
+def handle_message(received):
     url = received.get('text')
 
-    if platform.system() in {"Darwin", "Windows"}: # macOS should get support soon.
-        # send_message({
-        #     "status": "Error",
-        #     "reason": "This OS is not supported yet."
-        # })
+    if platform.system() in {"Darwin", "Windows"}:
         logger.warning("Unsupported platform: %s", platform.system())
+        send_message({"status": "Error", "reason": "Unsupported OS"})
         return
 
     if not url:
+        logger.error("handle_message - No URL received.")
         send_message({"status": "Error", "reason": "No URL received"})
-        logger.error("main - No URL received from message.")
         return
 
     player = None
@@ -120,20 +115,33 @@ def main():
             "--ytdl-format=bv*[vcodec^=avc1][height<=1080]+ba[acodec^=mp4a]/b[vcodec^=avc1][height<=1080]",
             url
         ]
-        logger.info(f"main - MPV found. Command: {player}")
+        logger.info(f"handle_message - MPV found. Command: {player}")
     else:
-        logger.error("main - MPV player not found.")
+        logger.error("handle_message - MPV not found.")
         send_message({"status": "Error", "reason": "MPV not found"})
         return
 
-    # Launch player
     try:
         subprocess.Popen(player)
+        logger.info("handle_message - MPV launched successfully.")
         send_message({"status": "Success"})
-        logger.info("main - MPV launched successfully.")
     except Exception as e:
-        logger.error(f"main - Failed to launch MPV: {e}")
+        logger.error(f"handle_message - Failed to launch MPV: {e}")
         send_message({"status": "Error", "reason": f"MPV launch failed: {str(e)}"})
+
+
+# Main
+def main():
+    logger.info("main - Native messaging host started.")
+
+    while True:
+        try:
+            received = read_message()
+            handle_message(received)
+        except Exception as e:
+            logger.error(f"main - Unexpected error: {e}")
+            send_message({"status": "Error", "reason": f"Unexpected error: {str(e)}"})
+
 
 if __name__ == '__main__':
     main()
